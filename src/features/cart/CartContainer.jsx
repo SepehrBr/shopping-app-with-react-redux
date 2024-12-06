@@ -20,13 +20,11 @@ export default function CartContainer() {
                     <header>
                         <h2>Your Bag</h2>
                     </header>
-                    <ul>
+                    <div>
                         {
-                            cartItems.map(item => {
-                                <CartItem key={item.id} item={item} />
-                            })
+                            cartItems.map(item => <CartItem key={item.id} item={item} />)
                         }
-                    </ul>
+                    </div>
                     <footer>
                         <hr />
                         <div className="cart-total">
