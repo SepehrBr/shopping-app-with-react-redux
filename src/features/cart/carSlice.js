@@ -5,7 +5,7 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState: {
         cartItems: cartItems,
-        amount: 4,
+        amount: 3,
         total: 0,
         isLoading: true
     },
@@ -20,8 +20,27 @@ const cartSlice = createSlice({
                 state.amount = 0
             }
         },
+        addItem: (state, { payload }) => {
+            state.cartItems.map(item => {
+                if (item.id == payload.id) {
+                    item.amount += 1;
+                    state.amount += 1;
+                }
+            })
+        },
+        removeItem: (state, { payload }) => {
+            state.cartItems.map(item => {
+                if (item.amount > 1) {
+                    if (item.id == payload.id) {
+                        item.amount -= 1;
+                        state.amount -= 1;
+                    }
+                }
+            })
+        },
+
     }
 });
 
-export const { clearCart } = cartSlice.actions;
+export const { clearCart, addItem, removeItem } = cartSlice.actions;
 export default cartSlice;

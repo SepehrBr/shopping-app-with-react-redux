@@ -1,7 +1,14 @@
-export default function ArrowUp() {
+/* eslint-disable react/prop-types */
+/* eslint-disable no-undef */
+import { useDispatch } from "react-redux"
+import { addItem } from "../features/cart/carSlice";
+
+export default function ArrowUp({ item }) {
+    const cartDispatcher = useDispatch();
 
     return (
         <svg
+            onClick={() => cartDispatcher(addItem(item))}
             xmlns='http://www.w3.org/2000/svg'
             className='h-6 w-6'
             fill='none'

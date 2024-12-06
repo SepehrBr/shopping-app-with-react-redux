@@ -16,11 +16,11 @@ export default function CartItem({ item }) {
             </div>
             <div>
                 <button className="amount-btn">
-                    <ArrowUp />
+                    <ArrowUp item={item} />
                 </button>
                 <p className="amount">{item?.amount}</p>
                 <button className="amount-btn">
-                    <ArrowDown />
+                    <ArrowDown item={item} />
                 </button>
             </div>
         </article>
