@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
+import { useDispatch } from "react-redux";
 import  ArrowDown  from "../../icons/ArrowDown"
 import  ArrowUp  from "../../icons/ArrowUp"
+import { clearCart } from "./carSlice";
 export default function CartItem({ item }) {
+    const cartDispatcher = useDispatch();
 
     return (
         <article className="cart-item">
@@ -9,7 +12,7 @@ export default function CartItem({ item }) {
             <div>
                 <h4>{item.title}</h4>
                 <h4 className="item-price">$ {item?.price}</h4>
-                <button className="remove-btn">Remove From Cart</button>
+                <button className="remove-btn" onClick={() => cartDispatcher(clearCart(item.id))}>Remove From Cart</button>
             </div>
             <div>
                 <button className="amount-btn">
